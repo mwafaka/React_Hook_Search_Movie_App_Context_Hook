@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import demoContext from "../demoContext";
 import { useContext } from "react";
 const Search = () => {
-  const { fetchData ,setState} = useContext(demoContext);
+  const { fetchData } = useContext(demoContext);
 
   const { register, handleSubmit ,reset} = useForm();
 
@@ -11,7 +11,7 @@ const Search = () => {
     
     // console.log(formValue.name);
     reset()
-    setState()
+    // setState()
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="search">

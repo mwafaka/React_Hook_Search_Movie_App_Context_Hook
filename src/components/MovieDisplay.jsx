@@ -4,20 +4,19 @@ import { useState, useEffect } from "react";
 const MovieDisplay = ({ id }) => {
   const [state, setSate] = useState([]);
 
-  const fetchData = async () => {
-    let reaponse = await fetch(
-      `https://www.omdbapi.com/?i=${id}&apikey=?`
-    );
-    let data = await reaponse.json();
-    setSate(data);
-
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      let reaponse = await fetch(
+        `https://www.omdbapi.com/?i=${id}&apikey=4a3b711b`
+      );
+      let data = await reaponse.json();
+      setSate(data);
+    };
+
     fetchData();
-  }, []);
+  }, [id]);
   return (
-    <div >
+    <div>
       <div className="movie">
         <div className="card" style={{ width: "18rem", marginLeft: "13rem" }}>
           <img src={state.Poster} className="card-img-top" alt="..." />

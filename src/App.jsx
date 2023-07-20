@@ -11,7 +11,7 @@ function App() {
 
   const fetchData = async (input) => {
     const response = await fetch(
-      `https://www.omdbapi.com/?s=${input}&apikey=?`
+      `https://www.omdbapi.com/?s=${input}&apikey=4a3b711b`
     );
     const data = await response.json();
     setState(data);
@@ -24,8 +24,8 @@ function App() {
         <Search />
         <div className="movies">
           {state &&
-            state.Search.map((item, index) => {
-              return <MovieDisplay key={index} id={item.imdbID} />;
+            state.Search.map((item) => {
+              return <MovieDisplay key={item.imdbID} id={item.imdbID} />;
             })}
         </div>
       </demoContext.Provider>
