@@ -1,110 +1,147 @@
-App {
-  text-align: center;
+:root {
+  --primary-bg: #282c34;
+  --primary-text: #ffffff;
+  --accent-color: antiquewhite;
+  --error-color: rgb(161, 15, 15);
 }
 
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+/* Header */
 .App-header {
-  background-color: #282c34;
+  background-color: var(--primary-bg);
   height: 70px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  padding: 20px;
+  font-size: 1.5rem;
+  color: var(--primary-text);
+  padding: 0 20px;
   cursor: pointer;
-}
-
-.spinner {
-  height: 80px;
-  margin: auto;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-/* new css for movie component */
-
-* {
-  box-sizing: border-box;
-}
-
-.movies {
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
 }
 
 .App-header h2 {
   margin: 0;
 }
 
+/* Loading Spinner */
+.spinner {
+  height: 80px;
+  margin: 40px auto;
+}
+
+/* Search Form */
+.search {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.search input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  width: 40%;
+  min-width: 180px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.search input[type="submit"] {
+  padding: 10px 16px;
+  background-color: transparent;
+  color: black;
+  font-weight: 500;
+  border: 1px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search input[type="submit"]:hover {
+  background-color: var(--primary-bg);
+  color: var(--accent-color);
+}
+
+/* Error Message */
+.errorMessage {
+  margin-top: 20px;
+  font-weight: bold;
+  color: var(--error-color);
+}
+
+/* Movies Layout */
+.movies {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 16px;
+}
+
+.movie {
+  max-width: 25%;
+  min-width: 250px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.movie .card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background-color: white;
+}
+
+.movie .card:hover {
+  transform: scale(1.03);
+}
+
+/* Add Movies */
 .add-movies {
   text-align: center;
+  margin-top: 30px;
 }
 
 .add-movies button {
   font-size: 16px;
-  padding: 8px;
+  padding: 8px 16px;
   margin: 0 10px 30px 10px;
-}
-
-.movie {
-  padding: 5px 25px 10px 25px;
-  max-width: 25%;
-}
-
-.errorMessage {
-  margin: auto;
-  font-weight: bold;
-  color: rgb(161, 15, 15);
-}
-
-.search {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-input[type="submit"] {
-  padding: 5px;
-  background-color: transparent;
-  color: black;
-  border: 1px solid black;
-  width: 80px;
-  margin-left: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  background-color: #333;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
-  background-color: #282c34;
-  color: antiquewhite;
+.add-movies button:hover {
+  background-color: #000;
 }
 
-.search > input[type="text"] {
-  width: 40%;
-  min-width: 170px;
-}
-
-@media screen and (min-width: 694px) and (max-width: 915px) {
+/* Responsive Grid Adjustments */
+@media (max-width: 915px) and (min-width: 694px) {
   .movie {
     max-width: 33%;
   }
 }
 
-@media screen and (min-width: 652px) and (max-width: 693px) {
+@media (max-width: 693px) and (min-width: 652px) {
   .movie {
     max-width: 50%;
   }
 }
 
-@media screen and (max-width: 651px) {
+@media (max-width: 651px) {
   .movie {
     max-width: 100%;
-    margin: auto;
   }
 }
